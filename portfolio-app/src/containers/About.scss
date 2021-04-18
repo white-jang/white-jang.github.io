@@ -1,0 +1,51 @@
+.about-wraper {
+  min-height: 760px;
+  width: 100%;
+  padding: 30px 0 0 0;
+  background-image: url(/img/bg-bright.png);
+  background-size: cover;
+
+  .none-active-box {
+    width: 500px;
+    height: 400px;
+    padding-top: 3px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 4px 3px 0 black;
+    margin: 0 0 0 10%;
+
+    h2 {
+      margin-top: 3px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    hr {
+      border-color: black;
+    }
+
+    .profile {
+      padding: 15px 20px;
+
+      img {
+        width: 130px;
+        height: 130px;
+        float: left;
+      }
+
+      h1 {
+        margin: 10px 0 5px 0;
+        font-size: 25px;
+      }
+
+      span {
+        color: rgb(108, 108, 108);
+      }
+
+      p {
+        text-align: justify;
+        margin-top: 50px;
+      }
+    }
+  }
+}
