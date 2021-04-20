@@ -19,7 +19,9 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link className="nav-item">Todo</Link>
+          <Link className="nav-item" to="/todo">
+            Todo
+          </Link>
         </li>
       </ul>
     </div>
