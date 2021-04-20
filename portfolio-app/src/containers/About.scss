@@ -33,7 +33,7 @@ $font-small: 1rem;
     }
 
     .profile {
-      padding: 15px 20px;
+      padding: 10px 20px;
 
       img {
         width: 130px;
@@ -41,28 +41,26 @@ $font-small: 1rem;
         float: left;
       }
 
-      h1 {
-        margin: 10px 0 5px 0;
-        font-size: #{$font-large};
+      p {
+        padding-top: 15px;
+        text-align: justify;
       }
 
-      span {
-        color: rgb(108, 108, 108);
-      }
+      .profile-text {
+        margin-bottom: 40px;
 
-      .typing {
-        div {
-          margin-top: 30px !important;
+        h1 {
+          margin: 10px 0 5px 0;
+          font-size: #{$font-large};
         }
 
         span {
-          color: black !important;
+          color: rgb(108, 108, 108);
         }
       }
 
       .links {
-        position: absolute;
-        top: 520px;
+        margin-top: 20px;
 
         a {
           color: black;
@@ -83,6 +81,13 @@ $font-small: 1rem;
         }
       }
     }
+  }
+
+  span.typing {
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    padding: 0 3px;
   }
 
   .active-box {
