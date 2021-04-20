@@ -1,22 +1,30 @@
+$font-large: 1.5rem;
+$font-small: 1rem;
+@mixin hover {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  transition: all 0.3s ease-out;
+}
+
 .about-wraper {
   min-height: 760px;
   width: 100%;
-  padding: 30px 0 0 0;
-  background-image: url(/img/bg-bright.png);
+  background-image: url(../img/bg-bright.png);
   background-size: cover;
 
   .none-active-box {
+    float: left;
     width: 500px;
-    height: 400px;
-    padding-top: 3px;
+    height: 380px;
+    margin: 10% 5% 10% 8%;
     background-color: white;
     border: 1px solid black;
     box-shadow: 4px 3px 0 black;
-    margin: 0 0 0 10%;
 
     h2 {
-      margin-top: 3px;
-      font-size: 20px;
+      margin-top: 0.3rem;
       text-align: center;
     }
 
@@ -35,16 +43,82 @@
 
       h1 {
         margin: 10px 0 5px 0;
-        font-size: 25px;
+        font-size: #{$font-large};
       }
 
       span {
         color: rgb(108, 108, 108);
       }
 
-      p {
-        text-align: justify;
-        margin-top: 50px;
+      .typing {
+        div {
+          margin-top: 30px !important;
+        }
+
+        span {
+          color: black !important;
+        }
+      }
+
+      .links {
+        position: absolute;
+        top: 520px;
+
+        a {
+          color: black;
+          font-size: #{$font-small};
+          text-decoration: none;
+          margin-right: 10px;
+          padding: 4px 5px 0 5px;
+
+          svg {
+            position: relative;
+            top: 0.15em;
+            margin-right: 5px;
+          }
+        }
+
+        a:hover {
+          @include hover();
+        }
+      }
+    }
+  }
+
+  .active-box {
+    float: left;
+    margin: 15% 0;
+    width: 600px;
+    height: 332px;
+    background-image: url(../img/active-box-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: 4px 3px 0 black;
+
+    h2 {
+      position: relative;
+      width: fit-content;
+      top: 0.3rem;
+      padding: 2px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    .skills-box {
+      margin-top: 25px;
+      padding: 30px 40px;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+
+      h1 {
+        font-size: #{$font-large};
+        margin-bottom: 10px;
+      }
+
+      span {
+        display: block;
       }
     }
   }

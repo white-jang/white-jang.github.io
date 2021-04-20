@@ -1,4 +1,17 @@
 import React from "react";
+import {
+  FaBloggerB,
+  FaGithub,
+  FaHtml5,
+  FaCss3,
+  FaPython,
+  FaReact,
+  FaJava,
+  FaAndroid,
+} from "react-icons/fa";
+import { SiNotion } from "react-icons/si";
+import { DiJavascript1, DiDjango, DiMysql } from "react-icons/di";
+import ReactTypingEffect from "react-typing-effect";
 import "./About.scss";
 
 const About = () => {
@@ -18,16 +31,65 @@ const About = () => {
           <br />
           <span>2020 멋쟁이사자처럼 X LOTTE 해커톤 은상</span>
           <br />
-          <p>
-            웹을 늘 사용하는 사람으로서 사용자 입장에서 친화적인 웹 서비스에
-            대한 고민을 항상 자주 했습니다. 예술을 좋아하고 이야기를 전달하는
-            것을 좋아하며 다양한 사람들에 대해 생각하는 저와, '사용자에게
-            보여지는 것'과 '확실한 정보의 전달', '접근성' 같은 웹 프론트엔드와
-            관련된 속성들이 저와 꼭 맞는 분야라고 말해주는 것 같습니다.
-          </p>
-          <a href="">Velog</a>
-          <a href="">Notion</a>
-          <a href="">GitHub</a>
+          <ReactTypingEffect
+            className="typing"
+            text={[
+              `웹을 늘 사용하는 사람으로서 사용자 입장에서 친화적인 웹 서비스에 대한 고민을 항상 했습니다. 
+              예술을 좋아하고 이야기를 전달하는 것을 좋아하며 다양한 사람들에 대해 생각하는 저와, '사용자에게
+              보여지는 것'과 '확실한 정보의 전달', '접근성' 같은 웹 프론트엔드와 관련된 속성들이 저와 꼭 맞는 분야라고 말해주는 것 같습니다.`,
+            ]}
+            speed={150}
+            eraseSpeed={100}
+          />
+          <div className="links">
+            <a href="https://github.com/white-jang">
+              <FaGithub />
+              GitHub
+            </a>
+            <a href="https://www.notion.so/remarkablewhite/Clair-White-Jang-151ace3ed5b54446958ae2bc83092788">
+              <SiNotion />
+              Notion
+            </a>
+            <a href="https://velog.io/@white-jang">
+              <FaBloggerB />
+              Velog
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="active-box">
+        <h2>The Skills she have.</h2>
+        <div className="skills-box">
+          <div>
+            <h1>Familiar</h1>
+            <FaHtml5 />
+            <span>HTML</span>
+            <FaCss3 />
+            <span>CSS</span>
+            <DiJavascript1 />
+            <span>JavaScript</span>
+            <FaPython />
+            <span>Python</span>
+            <FaGithub />
+            <span>Git/GitHub</span>
+          </div>
+          <div>
+            <h1>Moderate</h1>
+            <FaReact />
+            <span>React</span>
+            <DiDjango />
+            <span>Django</span>
+            <FaJava />
+            <span>JAVA</span>
+          </div>
+          <div>
+            <h1>Tried</h1>
+            <span>OpenCV</span>
+            <FaAndroid />
+            <span>Android (JAVA)</span>
+            <DiMysql />
+            <span>MySQL</span>
+          </div>
         </div>
       </div>
     </div>
