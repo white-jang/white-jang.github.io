@@ -9,16 +9,11 @@ $font-small: 1rem;
 }
 
 .about-wraper {
-  min-height: 760px;
-  width: 100%;
-  background-image: url(../img/bg-bright.png);
-  background-size: cover;
-
   .none-active-box {
     float: left;
     width: 500px;
     height: 380px;
-    margin: 10% 5% 10% 8%;
+    margin: 0 5% 0 8%;
     background-color: white;
     border: 1px solid black;
     box-shadow: 4px 3px 0 black;
@@ -92,7 +87,7 @@ $font-small: 1rem;
 
   .active-box {
     float: left;
-    margin: 15% 0;
+    margin: 10% 0;
     width: 600px;
     height: 332px;
     background-image: url(../img/active-box-bg.png);

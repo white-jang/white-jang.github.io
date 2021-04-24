@@ -28,9 +28,9 @@ const About = () => {
             <br />
             <span>2021 UNIT UPF 2기 멘티</span>
             <br />
-            <span>2021 고카톤 심사위원상</span>
+            <span>2021 고려대학교 '고카톤' 심사위원상</span>
             <br />
-            <span>2020 멋쟁이사자처럼 X LOTTE 해커톤 은상</span>
+            <span>2020 '멋쟁이사자처럼 X LOTTE 해커톤' 은상</span>
             <br />
           </div>
           <ReactTypingEffect
@@ -42,7 +42,6 @@ const About = () => {
               `사실... 게임도 좋아해요... ㅎㅎ`,
               `이렇게 말하니까 마치 언더테일 같네요!`,
               `이 페이지에 방문해주셔서 감사합니다.`,
-              `아무튼 그래서... 샌즈 아세요?`,
             ]}
             speed={100}
             eraseSpeed={100}
