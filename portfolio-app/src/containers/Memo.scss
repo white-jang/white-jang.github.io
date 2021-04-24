@@ -1,11 +1,5 @@
 .memo-wraper {
-  min-height: 760px;
-  width: 100%;
-  padding-top: 30px;
-  background-image: url(../img/bg-bright.png);
-  background-size: cover;
-
-  .memo {
+  .memo-write-box {
     width: 500px;
     height: 380px;
     margin: 0 auto;
@@ -31,37 +25,6 @@
       text-align: center;
       font-size: 0.8rem;
       color: grey;
-    }
-
-    form {
-      width: 85%;
-      height: 55%;
-      margin: 0 auto;
-      text-align: center;
-
-      textarea {
-        width: 100%;
-        height: 100%;
-        resize: none;
-        font-family: "NeoDunggeunmo";
-        font-size: 0.95rem;
-        margin-bottom: 5px;
-      }
-
-      button {
-        padding: 3px 5px;
-        font-family: "NeoDunggeunmo";
-        font-size: 1.3rem;
-        background-color: black;
-        color: white;
-        border: 1px solid black;
-
-        &:hover {
-          background-color: white;
-          color: black;
-          transition: background 0.3s ease-out;
-        }
-      }
     }
   }
 }
