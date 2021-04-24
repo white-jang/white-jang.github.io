@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
-import TodoInsert from "../components/TodoInsert";
-import TodoList from "../components/TodoList";
-import TodoTemplate from "../components/TodoTemplate";
+import TodoInsert from "../components/Todo/TodoInsert";
+import TodoList from "../components/Todo/TodoList";
+import TodoTemplate from "../components/Todo/TodoTemplate";
 import "./Todo.scss";
 
 const Todo = () => {
@@ -17,6 +17,7 @@ const Todo = () => {
   // useCallback을 활용해서 렌더링 성능 최적화
   const onInsert = useCallback(
     (text) => {
+      console.log(text);
       const todo = {
         id: nextId.current,
         text,
