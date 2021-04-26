@@ -7,21 +7,17 @@ const Memo = () => {
   const [memos, setMemos] = useState([
     {
       id: 1,
-      x: 50,
-      y: 150,
-      text: "<h1>Our Project</h1>",
+      text: "<h2>하얀의 개인 프로젝트</h2><p>아자아자! 파이팅~</p>",
     },
   ]);
 
   const nextId = useRef(2);
 
   const onInsert = useCallback(
-    // text, x, y 다 받아야 되는데 일단은 x,y 고정값
+    // text 값을 받고 x, y 값은 이 곳에서 랜덤 생성
     (text) => {
       const memo = {
         id: nextId.current,
-        x: 30,
-        y: 200,
         text,
       };
       setMemos(memos.concat(memo));

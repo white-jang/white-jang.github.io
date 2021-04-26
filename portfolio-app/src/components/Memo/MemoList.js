@@ -1,5 +1,6 @@
 import React from "react";
 import MemoItem from "./MemoItem";
+import "./MemoList.scss";
 
 const MemoList = ({ memos }) => {
   return (
