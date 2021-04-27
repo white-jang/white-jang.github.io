@@ -1,27 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
 import { FaApple } from "react-icons/fa";
 
 const Header = () => {
+  const activStyle = {
+    backgroundColor: "black",
+    color: "white",
+  };
+
   return (
     <div className="header-box">
       <FaApple />
       <ul>
         <li>
-          <Link className="nav-item" to="/">
+          <NavLink
+            className="nav-item"
+            exact
+            activeStyle={activStyle}
+            to="/"
+            children="/"
+          >
             About
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="nav-item" to="/memo">
+          <NavLink
+            className="nav-item"
+            activeStyle={activStyle}
+            to="/memo"
+            children="memo"
+          >
             Memo
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="nav-item" to="/todo">
+          <NavLink
+            className="nav-item"
+            activeStyle={activStyle}
+            to="/todo"
+            children="todo"
+          >
             Todo
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

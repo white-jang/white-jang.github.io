@@ -19,6 +19,7 @@ $font-small: 1rem;
     box-shadow: 4px 3px 0 black;
 
     h2 {
+      font-size: #{$font-small};
       margin-top: 0.3rem;
       text-align: center;
     }
@@ -96,6 +97,7 @@ $font-small: 1rem;
     box-shadow: 4px 3px 0 black;
 
     h2 {
+      font-size: #{$font-small};
       position: relative;
       width: fit-content;
       top: 0.3rem;

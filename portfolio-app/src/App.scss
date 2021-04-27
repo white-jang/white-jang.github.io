@@ -12,3 +12,22 @@ body,
   background: url("../src/img/bg-bright.png") no-repeat center center fixed;
   background-size: cover;
 }
+
+// 화면 전환 애니메이션
+.frame-enter {
+  position: absolute;
+  opacity: 0;
+}
+.frame-enter-active {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.frame-exit {
+  position: absolute;
+  opacity: 1;
+}
+.frame-exit-active {
+  position: absolute;
+  opacity: 0;
+}
