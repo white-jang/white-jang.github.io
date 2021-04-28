@@ -16,7 +16,6 @@
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.1",
     "react-typing-effect": "^2.0.5",
-    "react-virtualized": "^9.22.3",
     "rehype-stringify": "^8.0.0",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.1.0",
