@@ -19,7 +19,7 @@
 <br>
 
 ## 📂 File Structure 
-components
+**components**  
 - 컴포넌트 모음
   - Header
   - PageList
@@ -27,11 +27,14 @@ components
 - reset용 css 파일
   - Eric Meyer’s “Reset CSS” 2.0 인용, 커스텀
   - @font-face로 "네오둥근모 import
-components/Memo
-- Memo 페이지 관련 컴포넌트 모음
-components/Todo
-- Todo 페이지 관련 컴포넌트 모음
-src/containers
+   
+**components/Memo**  
+- Memo 페이지 관련 컴포넌트 모음  
+
+**components/Todo**  
+- Todo 페이지 관련 컴포넌트 모음  
+
+**src/containers**  
 - PageList 안에 들어가는 레이아웃 컴포넌트들 (...-wraper) 모음
 
 <br>
