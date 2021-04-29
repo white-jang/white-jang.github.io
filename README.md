@@ -13,7 +13,7 @@
   - class-names
   - react-transition-group
   - react-typing-effect
-  - unified, remark-rehype, remark-parse, react-virtualized
+  - unified, remark-rehype, remark-parse
   - gh-pages
 
 <br>
