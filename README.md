@@ -55,7 +55,7 @@
 
 <br>
 
-## 📚 Libraries
+## 📚 Packages
 - react-router-dom
   - Header를 통해 페이지를 이동할 수 있도록 하기 위해 이용
 - node-sass
