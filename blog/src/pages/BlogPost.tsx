@@ -1,28 +1,9 @@
-import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getPost } from '../utils/markdown'
-import type { Post } from '../types/post'
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
-  const [post, setPost] = useState<Post | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    if (!slug) return
-    getPost(slug).then(p => {
-      setPost(p)
-      setLoading(false)
-    })
-  }, [slug])
-
-  if (loading) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-12 text-sm text-gray-400">
-        불러오는 중...
-      </div>
-    )
-  }
+  const post = slug ? getPost(slug) : null
 
   if (!post) {
     return (
@@ -58,7 +39,7 @@ export default function BlogPost() {
       <hr className="border-black my-6" />
 
       <div
-        className="prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100"
+        className="prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded prose-pre:!bg-transparent prose-pre:!p-0"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </article>
