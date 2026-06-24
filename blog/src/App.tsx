@@ -11,9 +11,9 @@ export default function App() {
         <Header />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/" element={<BlogList />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/:slug" element={<BlogPost />} />
           </Routes>
         </main>
       </div>

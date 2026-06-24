@@ -14,7 +14,7 @@ export default function BlogList() {
           {posts.map(post => (
             <li key={post.slug}>
               <Link
-                to={`/blog/${post.slug}`}
+                to={`/${post.slug}`}
                 className="block bg-white border border-black shadow-pixel p-5 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150"
               >
                 <div className="flex items-baseline justify-between gap-4">

@@ -11,10 +11,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-black flex items-center gap-6 px-4 py-2 text-[22px]">
       <FaApple />
       <nav className="flex items-center gap-1">
-        <NavLink to="/blog" className={linkClass}>
+        <NavLink to="/" end className={linkClass}>
           Blog
         </NavLink>
-        <NavLink to="/" end className={linkClass}>
+        <NavLink to="/about" className={linkClass}>
           About
         </NavLink>
       </nav>

@@ -28,7 +28,7 @@ export default function BlogPost() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12">
         <p className="text-sm text-gray-600">포스트를 찾을 수 없습니다.</p>
-        <Link to="/blog" className="text-sm underline mt-4 block">
+        <Link to="/" className="text-sm underline mt-4 block">
           ← 목록으로
         </Link>
       </div>
@@ -38,7 +38,7 @@ export default function BlogPost() {
   return (
     <article className="max-w-2xl mx-auto px-4 py-12">
       <Link
-        to="/blog"
+        to="/"
         className="text-sm text-gray-500 hover:text-black transition-colors mb-8 block"
       >
         ← 목록으로
