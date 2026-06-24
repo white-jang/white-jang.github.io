@@ -1,7 +1,7 @@
 ---
 title: 첫 번째 블로그 포스트
-date: 2024-01-01
-tags: [blog, react, typescript]
+date: 2026-06-24
+tags: [react, typescript]
 description: React + TypeScript + Vite로 새로운 블로그를 시작합니다.
 ---
 
@@ -25,7 +25,7 @@ description: React + TypeScript + Vite로 새로운 블로그를 시작합니다
 
 ```tsx
 export default function Hello() {
-  return <h1>Hello, World!</h1>
+  return <h1>Hello, World!</h1>;
 }
 ```
 
