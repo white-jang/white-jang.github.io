@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { FaApple } from "react-icons/fa";
 
 export default function Header() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
