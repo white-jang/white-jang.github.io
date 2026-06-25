@@ -1,9 +1,9 @@
-import { useParams, Link } from 'react-router-dom'
-import { getPost } from '../utils/markdown'
+import { useParams, Link } from "react-router-dom";
+import { getPost } from "../utils/markdown";
 
 export default function BlogPost() {
-  const { slug } = useParams<{ slug: string }>()
-  const post = slug ? getPost(slug) : null
+  const { slug } = useParams<{ slug: string }>();
+  const post = slug ? getPost(slug) : null;
 
   if (!post) {
     return (
@@ -13,7 +13,7 @@ export default function BlogPost() {
           ← 목록으로
         </Link>
       </div>
-    )
+    );
   }
 
   return (
@@ -29,7 +29,7 @@ export default function BlogPost() {
 
       <div className="flex items-center gap-3 mb-2">
         <time className="text-sm text-gray-400">{post.date}</time>
-        {post.tags.map(tag => (
+        {post.tags.map((tag) => (
           <span key={tag} className="text-xs border border-black px-1.5 py-0.5">
             {tag}
           </span>
@@ -43,5 +43,5 @@ export default function BlogPost() {
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </article>
-  )
+  );
 }

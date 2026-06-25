@@ -1,8 +1,8 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import About from './pages/About'
-import BlogList from './pages/BlogList'
-import BlogPost from './pages/BlogPost'
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import About from "./pages/About";
+import BlogList from "./pages/BlogList";
+import BlogPost from "./pages/BlogPost";
 
 export default function App() {
   return (
@@ -18,5 +18,5 @@ export default function App() {
         </main>
       </div>
     </HashRouter>
-  )
+  );
 }
