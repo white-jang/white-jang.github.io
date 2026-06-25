@@ -44,7 +44,7 @@ export function mdPlugin(): Plugin {
   async function getHighlighter() {
     if (!highlighter) {
       highlighter = await createHighlighter({
-        themes: ["one-dark-pro"],
+        themes: ["aurora-x"],
         langs: [
           "javascript",
           "typescript",
@@ -78,7 +78,7 @@ export function mdPlugin(): Plugin {
       const file = await unified()
         .use(remarkParse)
         .use(remarkRehype, { allowDangerousHtml: true })
-        .use(rehypeShikiFromHighlighter, hl, { theme: "one-dark-pro" })
+        .use(rehypeShikiFromHighlighter, hl, { theme: "aurora-x" })
         .use(rehypeStringify, { allowDangerousHtml: true })
         .process(content);
 
