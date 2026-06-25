@@ -8,6 +8,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-black flex items-center gap-6 px-4 py-2 text-[22px]">
+      <img src="/favicon.png" alt="logo" className="w-6 h-6 mr-[-12px]" />
       <nav className="flex items-center gap-1">
         <NavLink to="/" end className={linkClass}>
           Blog
