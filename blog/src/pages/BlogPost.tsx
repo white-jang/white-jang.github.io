@@ -39,7 +39,7 @@ export default function BlogPost() {
       <hr className="border-black my-6" />
 
       <div
-        className="prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded prose-pre:!bg-transparent prose-pre:!p-0"
+        className="prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:rounded-none"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </article>
