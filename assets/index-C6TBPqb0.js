@@ -307,7 +307,7 @@ description: 포스트 설명
 <span class="line"><span style="color:#546E7A;font-style:italic">// User에 권한 정보만 추가하고 싶을 때</span></span>
 <span class="line"><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> AdminUser</span><span style="color:#C792EA"> =</span><span style="color:#FFCB6B"> User</span><span style="color:#C792EA"> &#x26;</span><span style="color:#89DDFF"> {</span><span style="color:#EEFFFF"> role</span><span style="color:#C792EA">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">admin</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> };</span></span></code></pre>
 <p>남발하면 타입이 복잡해져서 가독성이 떨어짐</p>
-<p>이럴 때는 차라리 extends를 사용</p>`},fy={slug:"2025-06-29-TypeScript03",title:"TypeScript 기초 (타입 별칭, 이넘, 클래스)",date:"2026-06-26",tags:["typescript"],description:"쉽게 시작하는 타입스크립트로 TypeScript 기초 공부",html:`<h2>타입 별칭(Type Alias)</h2>
+<p>이럴 때는 차라리 extends를 사용</p>`},fy={slug:"2025-06-29-TypeScript03",title:"TypeScript 기초 (타입 별칭, 이넘, 클래스)",date:"2026-06-29",tags:["typescript"],description:"쉽게 시작하는 타입스크립트로 TypeScript 기초 공부",html:`<h2>타입 별칭(Type Alias)</h2>
 <p>특정 타입이나 인터페이스 등을 별도의 이름으로 부르는 것</p>
 <p>특정 타입의 이름을 짓고 싶을 때, <strong>여러번 반복되는 타입을 변수화</strong>하고 싶을 때 사용</p>
 <pre class="shiki aurora-x" style="background-color:#07090F;color:#bbbbbb" tabindex="0"><code><span class="line"><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> MyName</span><span style="color:#C792EA"> =</span><span style="color:#B2CCD6"> string</span><span style="color:#89DDFF">;</span></span>
