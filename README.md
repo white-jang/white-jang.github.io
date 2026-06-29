@@ -1,77 +1,83 @@
-# 포트폴리오 토이 프로젝트
+# white-jang.github.io
 
-![미리보기이미지](/img/capture1.png)  
-[바로가기](https://white-jang.github.io/#/, "포트폴리오 링크")
+개인 기술 블로그입니다.
 
-<br>
-
-## ⏱ Installation
-- SCSS
-- React (yarn)
-  - react-router-dom
-  - node-sass
-  - class-names
-  - react-transition-group
-  - react-typing-effect
-  - unified, remark-rehype, remark-parse
-  - gh-pages
+[바로가기](https://white-jang.github.io)
 
 <br>
 
-## 📂 File Structure 
-**components**  
-- 컴포넌트 모음
-  - Header
-  - PageList
-  - 📂 Memo, Todo
-- reset용 css 파일
-  - Eric Meyer’s “Reset CSS” 2.0 인용, 커스텀
-  - @font-face로 "네오둥근모 import
-   
-**components/Memo**  
-- Memo 페이지 관련 컴포넌트 모음  
+## 🛠 Tech Stack
 
-**components/Todo**  
-- Todo 페이지 관련 컴포넌트 모음  
-
-**src/containers**  
-- PageList 안에 들어가는 레이아웃 컴포넌트들 (...-wraper) 모음
+- **React 18** + **TypeScript**
+- **Vite** — 빌드 도구
+- **Tailwind CSS** — 스타일링
+- **react-router-dom v6** — HashRouter 기반 라우팅
+- **unified / remark / rehype** — 마크다운 → HTML 변환
+- **Shiki** — 코드 신택스 하이라이팅
+- **gh-pages** — GitHub Pages 배포
 
 <br>
 
-## 🌵 Branchs
-- ✔ main : 개발 및 빌드한 기본 브랜치
-- ✔ gh-pages : gh-pages 라이브러리에 따라 관리되는 배포용 브랜치
+## 📂 File Structure
+
+```
+blog/
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx       # 상단 네비게이션 (Blog / About)
+│   │   ├── BlogList.tsx     # 포스트 목록 + 태그 필터링
+│   │   ├── BlogPost.tsx     # 개별 포스트 뷰
+│   │   └── About.tsx        # 소개 페이지
+│   ├── hooks/
+│   │   └── useTyping.ts     # 타이핑 애니메이션 훅
+│   ├── posts/               # 마크다운 포스트 파일 (.md)
+│   ├── types/
+│   │   └── post.ts          # Post / PostMeta 타입 정의
+│   └── utils/
+│       └── markdown.ts      # 포스트 로딩 유틸 (import.meta.glob)
+├── vite.config.ts
+└── tailwind.config.cjs
+```
 
 <br>
 
-## 💻 Coding Convention
-- Naming Rules
-  - Components, SCSS Files : 파스칼표기법
-  - Variable, Methods : 카멜표기법
-  - Class : 띄어쓰기 '-'로 사용 `<div class='logo-item'></div>`
-- Prettier, ESLint
-  - 기본 설정 사용
+## ✍️ 포스트 작성 방법
+
+`blog/src/posts/` 폴더에 마크다운 파일을 추가합니다.
+
+파일명 형식: `YYYY-MM-DD-slug.md`
+
+```markdown
+---
+title: 포스트 제목
+date: 2025-06-26
+tags: [typescript, react]
+description: 포스트 한 줄 설명
+---
+
+본문 내용...
+```
+
+빌드 시 `import.meta.glob`으로 자동 수집되므로 별도 등록 없이 목록에 반영됩니다.
 
 <br>
 
-## 📚 Packages
-- react-router-dom
-  - Header를 통해 페이지를 이동할 수 있도록 하기 위해 이용
-- node-sass
-  - SCSS로 작성한 스타일을 적용시키기 위해 이용
-- class-names
-  - 조건부 스타일 적용을 위해 TodoListItem에서 이용
-- react-transition-group
-  - 페이지를 이동할 때 화면 전환 애니메이션을 적용시키기 위해 이용
-  - 이 [게시글](https://medium.com/@wdjty326/react-router-dom-v5-route-%EC%A0%84%ED%99%98-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EC%B2%98%EB%A6%AC-935dfc6cc475)을 참고
-- react-typing-effect
-  - About 페이지에서 한 마디를 강조하고 디자인 컨셉에 맞추기 위하여 이용
-  - [npmjs.com](https://www.npmjs.com/package/react-typing-effect)을 참고하여 이용 (패키지 도구를 yarn으로 사용했기 때문에 명령어는 다르게 사용)
-- unified, remark-rehype, remark-parse, react-virtualized
-  - Memo 페이지에서 마크다운 언어로 작성한 메모를 HTML로 변환하기 위해 이용
-  - 이 [게시글](https://www.daleseo.com/unified-remark-rehype/)을 참고
-- gh-pages
-  - white-jang.github.io로 배포하기 위해 이용
+## 🌿 Branch
+
+- `main` — 개발 및 소스 관리
+- `gh-pages` — gh-pages 라이브러리로 관리되는 배포 브랜치
 
 <br>
+
+## 🚀 Commands
+
+```bash
+# 개발 서버
+npm run dev
+
+# 빌드
+npm run build
+
+# 배포
+npm run deploy
+```
