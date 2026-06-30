@@ -524,14 +524,43 @@ Antigravity로 이미지를 전달했을 때에는 여러 번 이미지를 분�
 <p>Figma MCP를 연결하고 구현을 시도하다가 Figma 내의 구조에 이슈가 있다는 것을 깨달았다. 디자이너 없이 개발자들이 기획과 디자인을 진행했다 보니, <strong>Figma 내에서 구조가 Group으로만 잡혀있어 HTML 레이아웃을 제대로 인식하지 못하는 문제가 있었던 것이다.</strong><br>
 동일한 페이지를 Auto Layout했을 때, Group했을 때 코드를 비교해 보았더니 Auto Layout은 Element들 간의 위치 관계를 파악하여 div밑에 span 등 상위, 하위 구조로 HTML의 기본 구조를 잘 따랐다. 따라서 CSS 퀄리티도 전혀 문제가 없었다.
 그러나, Figma 상에서 Group만 했을 경우 Element들 간의 관계를 파악하지 못해 전부 별개의 Element로 구현하여 CSS도 상하 관계를 이용하지 못하고 전부 <code>display: absolute;</code>로 처리하는 아찔한 결과를 얻었다.
-이 실험을 표로 정리하면 이렇다.
-| 항목 | Auto Layout | Group |
-|---|---|---|
-| HTML 구조 인식 | Element 간 위치 관계 파악 ○ | Element 간 관계 파악 불가 ✕ |
-| HTML 출력 | <code>div</code> 하위에 <code>span</code> 등 상하 계층 구조로 생성 | 모든 Element를 별개의 독립 요소로 생성 |
-| CSS 포지셔닝 | 상하 관계를 이용한 자연스러운 레이아웃 | 모든 요소에 <code>position: absolute</code> 적용 |
-| CSS 퀄리티 | 문제 없음 | 유지보수 불가 수준 |
-| MCP 코드 생성 적합성 | 적합 | 부적합 |</p>
+이 실험을 표로 정리하면 이렇다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>Auto Layout</th>
+<th>Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML 구조 인식</td>
+<td>Element 간 위치 관계 파악 ○</td>
+<td>Element 간 관계 파악 불가 ✕</td>
+</tr>
+<tr>
+<td>HTML 출력</td>
+<td><code>div</code> 하위에 <code>span</code> 등 상하 계층 구조로 생성</td>
+<td>모든 Element를 별개의 독립 요소로 생성</td>
+</tr>
+<tr>
+<td>CSS 포지셔닝</td>
+<td>상하 관계를 이용한 자연스러운 레이아웃</td>
+<td>모든 요소에 <code>position: absolute</code> 적용</td>
+</tr>
+<tr>
+<td>CSS 퀄리티</td>
+<td>문제 없음</td>
+<td>유지보수 불가 수준</td>
+</tr>
+<tr>
+<td>MCP 코드 생성 적합성</td>
+<td>적합</td>
+<td>부적합</td>
+</tr>
+</tbody>
+</table>
 <p>그럼 꼭 레이아웃을 Figma 상에서 잡고 가야 할까? 당시에는 이것 때문에 고민이 컸지만 지금 와서 생각해 보면 꼭 그렇지만은 않았다. 다른 방법으로 충분히 우회할 수 있는 수준의 이슈였다.
 이후에 이 문제는 Figma는 전혀 수정하지 않고 Group을 유지한 채 Cluade Code를 사용하면서 기존 퍼블리싱 결과물을 학습시키고, md로 디자인 규칙 등을 세세히 잡아 해결했다. 이것은 나중에 새로운 글로 더 상세히 적도록 하겠다.</p>
 <h3>Gemini: 쟈동화? *대바라 Cluade: 이리 와... 많이 힘들었지? 🥹</h3>
@@ -540,7 +569,7 @@ Antigravity로 이미지를 전달했을 때에는 여러 번 이미지를 분�
 <strong>새로운 HTML/CSS 파일로 작업할 것을 지시하자 레거시 CSS를 분석하여 헤더, 사이드바, 푸터를 자동으로 적용하여 캡처 한 장만으로 Antigravity보다 퀄리티 높은 결과물이 만들어졌다.</strong>
 이후에 시도한 Figma MCP도 Group만 사용했음에도 완성도가 꽤 높은 결과물이 나왔다. Antigravity와 다르게 Figma MCP로 구조를 잘 읽어와 아이콘 이미지도 png 형태로 추출하여 버튼에 적용하는 모습을 보여주었다.
 Claude가 만들어준 결과물이 훨씬 만족스러웠다. 그러나, 아직 한 번의 시도만으로 완벽하게 UI를 구현하지는 못했다. Figma 상에서 디자인 시스템이 정의되지 않았기 때문에 여전히 아쉬운 점이 조금 남아있었다.
-그래서 이 뒤로는 계속 **"디자인 고도화"**라는 숙제를 풀기 위해 노력하기 시작했다.</p>
+그래서 이 뒤로는 계속 "디자인 고도화"라는 숙제를 풀기 위해 노력하기 시작했다.</p>
 <h3>디자인 고도화...... 너냐? 8반 이쁜이가?</h3>
 <p>"AI를 가장 잘 아는 것은 AI다." 라는 지론에 따라 Claude와 함께 <code>DESGIN_RULES.md</code> 파일에 구체적인 디자인 스펙을 작성했다. 기존의 퍼블리싱 결과물과 Figma MCP를 통해 디자인 특징을 추출하여 폰트 크기, 버튼 레이아웃, 강조 색상 등 디자인 시스템에서 정의할만한 내용들로 구성하고, <code>WORKFLOW.md</code>에 써있는 규칙에 따라 퍼블리싱 작업 시에 가장 먼저 참고하도록 해두었다.
 그 다음, <code>PUB_RULES.md</code>에 기존 레거시 CSS에서 어떤 상황에서 클래스를 재사용할 수 있는지를 작성하고 참고하도록 했다.
@@ -549,4 +578,4 @@ Claude가 만들어준 결과물이 훨씬 만족스러웠다. 그러나, 아직
 <h3>회고</h3>
 <p>처음 업무에 AI를 적극적으로 도입해보았던 거라 AI 의존적으로 코딩을 함께 한다는 것이 상당히 어색했다. <strong>이때 처음으로 "내가 어디까지 관여해야 할까?", "AI가 만든 코드를 얼마나 깊게 검증해야 할까?", "어떻게 해야 더 내 말을 잘 알아듣게 할 수 있을까?" 같은 고민을 하기 시작했고 정말 개발 패러다임이 바뀌었다는 게 실감났다.</strong>
 정말 운 좋게도 팀에 AI가 너무나도 필요한 상황이었고 그 덕분에 여러가지 시도해볼 수 있어서 좋은 기회였다. 이 작업을 맡기 전까지 AI 의존 코딩에 그다지 관심이 없었으나, 어느새 익숙해져 이제는 클로드 없이 개발할 수 없는 몸이 되어버렸다... <em>(책임져!! Anthropic: 오잉? 제가요?)</em>
-그러나 아직도 여전히 AI를 어떻게 써야 잘 쓰는 사람이 되는 건지를 모르겠다. 계속해서 풀어나가야 하는 새로운 숙제인 것 같다.</p>`},yy=Object.assign({"../posts/2025-06-24-hello-world.md":uy,"../posts/2025-06-25-TypeScript01.md":py,"../posts/2025-06-26-TypeScript02.md":cy,"../posts/2025-06-29-TypeScript03.md":fy,"../posts/2025-06-30-FigmaToComponent01.md":dy}),zp=Object.values(yy).sort((o,u)=>u.date.localeCompare(o.date));function hy(){return zp.map(({slug:o,title:u,date:i,tags:c,description:h})=>({slug:o,title:u,date:i,tags:c,description:h}))}function my(o){return zp.find(u=>u.slug===o)??null}function Fy(){const o=hy(),[u,i]=N.useState(null),c=Array.from(new Set(o.flatMap(m=>m.tags))).sort(),h=u?o.filter(m=>m.tags.includes(u)):o;return I.jsxs("div",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx("h1",{className:"text-2xl font-bold mb-4 pb-2",children:"Blog"}),c.length>0&&I.jsxs("div",{className:"flex gap-2 flex-wrap mb-8",children:[I.jsx("button",{onClick:()=>i(null),className:`text-xs px-2.5 py-1 border border-black transition-all duration-150 ${u===null?"bg-black text-white":"bg-white text-black hover:bg-gray-100"}`,children:"All"}),c.map(m=>I.jsx("button",{onClick:()=>i(u===m?null:m),className:`text-xs px-2.5 py-1 border border-black transition-all duration-150 ${u===m?"bg-black text-white":"bg-white text-black hover:bg-gray-100"}`,children:m},m))]}),h.length===0?I.jsx("p",{className:"text-sm text-gray-500",children:"아직 작성된 글이 없습니다."}):I.jsx("ul",{className:"flex flex-col gap-5",children:h.map(m=>I.jsx("li",{children:I.jsxs(Qs,{to:`/${m.slug}`,className:"block bg-white border border-black shadow-pixel p-5 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150",children:[I.jsxs("div",{className:"flex items-baseline justify-between gap-4",children:[I.jsx("h2",{className:"text-base font-bold",children:m.title}),I.jsx("time",{className:"text-xs text-gray-400 flex-shrink-0",children:m.date})]}),m.description&&I.jsx("p",{className:"text-sm text-gray-600 mt-1.5",children:m.description}),m.tags.length>0&&I.jsx("div",{className:"flex gap-1.5 mt-3 flex-wrap",children:m.tags.map(D=>I.jsx("span",{className:"text-xs border border-black px-1.5 py-0.5",children:D},D))})]})},m.slug))})]})}function vy(){const{slug:o}=gd(),u=o?my(o):null;return u?I.jsxs("article",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx(Qs,{to:"/",className:"text-sm text-gray-500 hover:text-black transition-colors mb-8 block",children:"← 목록으로"}),I.jsx("h1",{className:"text-3xl font-bold mb-3",children:u.title}),I.jsxs("div",{className:"flex items-center gap-3 mb-2",children:[I.jsx("time",{className:"text-sm text-gray-400",children:u.date}),u.tags.map(i=>I.jsx("span",{className:"text-xs border border-black px-1.5 py-0.5",children:i},i))]}),I.jsx("hr",{className:"border-black my-6"}),I.jsx("div",{className:"prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:rounded-none",dangerouslySetInnerHTML:{__html:u.html}})]}):I.jsxs("div",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx("p",{className:"text-sm text-gray-600",children:"포스트를 찾을 수 없습니다."}),I.jsx(Qs,{to:"/",className:"text-sm underline mt-4 block",children:"← 목록으로"})]})}function gy(){return I.jsx(Vd,{children:I.jsxs("div",{className:"min-h-screen flex flex-col",children:[I.jsx(Yd,{}),I.jsx("main",{className:"flex-1",children:I.jsxs(zd,{children:[I.jsx($s,{path:"/",element:I.jsx(Fy,{})}),I.jsx($s,{path:"/about",element:I.jsx(iy,{})}),I.jsx($s,{path:"/:slug",element:I.jsx(vy,{})})]})})]})})}Vf.createRoot(document.getElementById("root")).render(I.jsx(Nn.StrictMode,{children:I.jsx(gy,{})}));
+그러나 아직도 여전히 AI를 어떻게 써야 잘 쓰는 사람이 되는 건지를 모르겠다. 계속해서 풀어나가야 하는 새로운 숙제인 것 같다.</p>`},yy=Object.assign({"../posts/2025-06-24-hello-world.md":uy,"../posts/2025-06-25-TypeScript01.md":py,"../posts/2025-06-26-TypeScript02.md":cy,"../posts/2025-06-29-TypeScript03.md":fy,"../posts/2025-06-30-FigmaToComponent01.md":dy}),zp=Object.values(yy).sort((o,u)=>u.date.localeCompare(o.date));function hy(){return zp.map(({slug:o,title:u,date:i,tags:c,description:h})=>({slug:o,title:u,date:i,tags:c,description:h}))}function my(o){return zp.find(u=>u.slug===o)??null}function Fy(){const o=hy(),[u,i]=N.useState(null),c=Array.from(new Set(o.flatMap(m=>m.tags))).sort(),h=u?o.filter(m=>m.tags.includes(u)):o;return I.jsxs("div",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx("h1",{className:"text-2xl font-bold mb-4 pb-2",children:"Blog"}),c.length>0&&I.jsxs("div",{className:"flex gap-2 flex-wrap mb-8",children:[I.jsx("button",{onClick:()=>i(null),className:`text-xs px-2.5 py-1 border border-black transition-all duration-150 ${u===null?"bg-black text-white":"bg-white text-black hover:bg-gray-100"}`,children:"All"}),c.map(m=>I.jsx("button",{onClick:()=>i(u===m?null:m),className:`text-xs px-2.5 py-1 border border-black transition-all duration-150 ${u===m?"bg-black text-white":"bg-white text-black hover:bg-gray-100"}`,children:m},m))]}),h.length===0?I.jsx("p",{className:"text-sm text-gray-500",children:"아직 작성된 글이 없습니다."}):I.jsx("ul",{className:"flex flex-col gap-5",children:h.map(m=>I.jsx("li",{children:I.jsxs(Qs,{to:`/${m.slug}`,className:"block bg-white border border-black shadow-pixel p-5 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150",children:[I.jsxs("div",{className:"flex items-baseline justify-between gap-4",children:[I.jsx("h2",{className:"text-base font-bold",children:m.title}),I.jsx("time",{className:"text-xs text-gray-400 flex-shrink-0",children:m.date})]}),m.description&&I.jsx("p",{className:"text-sm text-gray-600 mt-1.5",children:m.description}),m.tags.length>0&&I.jsx("div",{className:"flex gap-1.5 mt-3 flex-wrap",children:m.tags.map(D=>I.jsx("span",{className:"text-xs border border-black px-1.5 py-0.5",children:D},D))})]})},m.slug))})]})}function vy(){const{slug:o}=gd(),u=o?my(o):null;return u?I.jsxs("article",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx(Qs,{to:"/",className:"text-sm text-gray-500 hover:text-black transition-colors mb-8 block",children:"← 목록으로"}),I.jsx("h1",{className:"text-3xl font-bold mb-3",children:u.title}),I.jsxs("div",{className:"flex items-center gap-3 mb-2",children:[I.jsx("time",{className:"text-sm text-gray-400",children:u.date}),u.tags.map(i=>I.jsx("span",{className:"text-xs border border-black px-1.5 py-0.5",children:i},i))]}),I.jsx("hr",{className:"border-black my-6"}),I.jsx("div",{className:"prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-slate-200 prose-code:text-gray prose-code:p-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:rounded-none",dangerouslySetInnerHTML:{__html:u.html}})]}):I.jsxs("div",{className:"max-w-2xl mx-auto px-4 py-12",children:[I.jsx("p",{className:"text-sm text-gray-600",children:"포스트를 찾을 수 없습니다."}),I.jsx(Qs,{to:"/",className:"text-sm underline mt-4 block",children:"← 목록으로"})]})}function gy(){return I.jsx(Vd,{children:I.jsxs("div",{className:"min-h-screen flex flex-col",children:[I.jsx(Yd,{}),I.jsx("main",{className:"flex-1",children:I.jsxs(zd,{children:[I.jsx($s,{path:"/",element:I.jsx(Fy,{})}),I.jsx($s,{path:"/about",element:I.jsx(iy,{})}),I.jsx($s,{path:"/:slug",element:I.jsx(vy,{})})]})})]})})}Vf.createRoot(document.getElementById("root")).render(I.jsx(Nn.StrictMode,{children:I.jsx(gy,{})}));
