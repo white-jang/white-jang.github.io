@@ -472,7 +472,7 @@ description: 포스트 설명
 <span class="line"><span style="color:#89DDFF">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#C792EA">const</span><span style="color:#EEFFFF"> dev</span><span style="color:#C792EA"> =</span><span style="color:#C792EA"> new</span><span style="color:#82AAFF"> Developer</span><span style="color:#BBBBBB">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">TypeScript</span><span style="color:#89DDFF">"</span><span style="color:#BBBBBB">)</span><span style="color:#89DDFF">;</span></span>
-<span class="line"><span style="color:#EEFFFF">dev</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">coding</span><span style="color:#BBBBBB">()</span><span style="color:#89DDFF">;</span><span style="color:#546E7A;font-style:italic"> // TypeScript로 개발 중...</span></span></code></pre>`},dy={slug:"2025-06-30-FigmaToComponent01",title:"클로드 코드로 퍼블리싱 과정 대체하기: Figma to HTML/CSS",date:"2026-06-30",tags:["AI]","[회고"],description:"마이그레이션을 할 때 퍼블리싱 자동화를 도전했던 회고",html:`<h3>서론</h3>
+<span class="line"><span style="color:#EEFFFF">dev</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">coding</span><span style="color:#BBBBBB">()</span><span style="color:#89DDFF">;</span><span style="color:#546E7A;font-style:italic"> // TypeScript로 개발 중...</span></span></code></pre>`},dy={slug:"2025-06-30-FigmaToComponent01",title:"클로드 코드로 퍼블리싱 과정 대체하기: Figma to HTML/CSS",date:"2026-06-30",tags:["AI","회고"],description:"마이그레이션을 할 때 퍼블리싱 자동화를 도전했던 회고",html:`<h3>서론</h3>
 <p>회사에서 클로드 코드와 함께 퍼블리싱 자동화를 도전했던 기록을 적어보았다.<br>
 왜 클로드 코드였는지? 어떤 방법을 선택했는지? 여러가지 갈림길 중 지나온 길을 걸었던 이유를 정리하려고 한다.</p>
 <h3>도입 배경</h3>
