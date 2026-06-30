@@ -1,7 +1,7 @@
 ---
 title: 클로드 코드로 퍼블리싱 과정 대체하기: Figma to HTML/CSS
 date: 2026-06-30
-tags: [AI], [회고]
+tags: [AI, 회고]
 description: 마이그레이션을 할 때 퍼블리싱 자동화를 도전했던 회고
 ---
 
