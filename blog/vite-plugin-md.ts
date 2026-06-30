@@ -1,6 +1,7 @@
 import type { Plugin } from "vite";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
@@ -77,6 +78,7 @@ export function mdPlugin(): Plugin {
 
       const file = await unified()
         .use(remarkParse)
+        .use(remarkGfm)
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeShikiFromHighlighter, hl, { theme: "aurora-x" })
         .use(rehypeStringify, { allowDangerousHtml: true })
