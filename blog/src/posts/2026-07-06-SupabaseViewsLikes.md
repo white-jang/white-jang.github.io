@@ -5,8 +5,6 @@ tags: [supabase, react, typescript]
 description: 별도 백엔드 없이 Supabase로 블로그 포스트의 조회수와 좋아요 토글 기능을 구현한 과정을 기록합니다.
 ---
 
-# Supabase로 조회수 · 좋아요 기능 구현하기
-
 블로그에 두 가지 기능을 추가했다.
 
 - 포스트를 열면 조회수가 1 오른다.
