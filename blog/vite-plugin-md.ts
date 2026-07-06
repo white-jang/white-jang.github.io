@@ -62,6 +62,7 @@ export function mdPlugin(): Plugin {
           "java",
           "markdown",
           "text",
+          "sql",
         ],
       });
     }
