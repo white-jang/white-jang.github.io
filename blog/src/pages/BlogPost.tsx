@@ -1,9 +1,13 @@
 import { useParams, Link } from "react-router-dom";
+import { FiEye } from "react-icons/fi";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { getPost } from "../utils/markdown";
+import { usePostStats } from "../hooks/usePostStats";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPost(slug) : null;
+  const { stats, liked, handleLike } = usePostStats(slug ?? "");
 
   if (!post) {
     return (
@@ -27,13 +31,33 @@ export default function BlogPost() {
 
       <h1 className="text-3xl font-bold mb-3">{post.title}</h1>
 
-      <div className="flex items-center gap-3 mb-2">
-        <time className="text-sm text-gray-400">{post.date}</time>
-        {post.tags.map((tag) => (
-          <span key={tag} className="text-xs border border-black px-1.5 py-0.5">
-            {tag}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-3">
+          <time className="text-sm text-gray-400">{post.date}</time>
+          {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs border border-black px-1.5 py-0.5"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-center gap-3 text-sm text-gray-400">
+          <span className="flex items-center gap-1">
+            <FiEye />
+            {stats.views}
           </span>
-        ))}
+          <button
+            onClick={handleLike}
+            className={`flex items-center gap-1 transition-colors ${
+              liked ? "text-red-500" : "hover:text-red-400"
+            }`}
+          >
+            {liked ? <FaHeart /> : <FaRegHeart />}
+            {stats.likes}
+          </button>
+        </div>
       </div>
 
       <hr className="border-black my-6" />
@@ -42,6 +66,26 @@ export default function BlogPost() {
         className="prose prose-sm max-w-none prose-headings:font-bold prose-a:text-black prose-code:bg-slate-200 prose-code:text-gray prose-code:p-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:rounded-none"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
+
+      <div className="flex flex-col items-center gap-2 mt-16">
+        <button
+          onClick={handleLike}
+          className={`flex items-center gap-2 border px-6 py-3 text-sm transition-colors duration-150 ${
+            liked
+              ? "border-red-400 text-red-500 bg-red-50"
+              : "border-black hover:bg-black hover:text-white"
+          }`}
+        >
+          {liked ? <FaHeart /> : <FaRegHeart />}
+          {liked ? "좋아요" : "이 글이 도움됐다면 하트를!"}
+          <span className="font-bold">{stats.likes}</span>
+        </button>
+        {liked && (
+          <p className="text-xs text-gray-400">
+            버튼을 한 번 더 누르면 취소됩니다.
+          </p>
+        )}
+      </div>
     </article>
   );
 }
