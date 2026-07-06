@@ -13,8 +13,9 @@
 - **Tailwind CSS** — 스타일링
 - **react-router-dom v6** — HashRouter 기반 라우팅
 - **unified / remark / rehype** — 마크다운 → HTML 변환
-- **Shiki** — 코드 신택스 하이라이팅
-- **gh-pages** — GitHub Pages 배포
+- **Shiki** — 코드 신택스 하이라이팅 (aurora-x 테마, 빌드 타임)
+- **Supabase** — 조회수 · 좋아요 저장 (PostgreSQL + RPC)
+- **GitHub Actions** — main 푸시 시 자동 배포
 
 <br>
 
@@ -29,7 +30,10 @@ blog/
 │   │   ├── BlogPost.tsx     # 개별 포스트 뷰
 │   │   └── About.tsx        # 소개 페이지
 │   ├── hooks/
-│   │   └── useTyping.ts     # 타이핑 애니메이션 훅
+│   │   ├── useTyping.ts     # 타이핑 애니메이션 훅
+│   │   └── usePostStats.ts  # 조회수 · 좋아요 상태 훅 (Supabase)
+│   ├── lib/
+│   │   └── supabase.ts      # Supabase 클라이언트
 │   ├── posts/               # 마크다운 포스트 파일 (.md)
 │   ├── types/
 │   │   └── post.ts          # Post / PostMeta 타입 정의
@@ -65,7 +69,20 @@ description: 포스트 한 줄 설명
 ## 🌿 Branch
 
 - `main` — 개발 및 소스 관리
-- `gh-pages` — gh-pages 라이브러리로 관리되는 배포 브랜치
+- `gh-pages` — GitHub Actions로 자동 배포되는 브랜치
+
+<br>
+
+## 🔐 환경 변수
+
+로컬 개발 시 `blog/.env` 파일을 생성하고 아래 값을 채웁니다.
+
+```env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+GitHub 배포 시에는 Repository Settings → Secrets에 동일한 키를 등록합니다.
 
 <br>
 
@@ -77,7 +94,4 @@ npm run dev
 
 # 빌드
 npm run build
-
-# 배포
-npm run deploy
 ```
