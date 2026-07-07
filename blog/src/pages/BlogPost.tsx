@@ -46,7 +46,11 @@ export default function BlogPost() {
         <div className="flex items-center gap-3 text-sm text-gray-400">
           <span className="flex items-center gap-1">
             <FiEye />
-            {stats.views}
+            {stats === null ? (
+              <span className="w-3 h-3 bg-gray-200 rounded animate-pulse inline-block" />
+            ) : (
+              stats.views
+            )}
           </span>
           <button
             onClick={handleLike}
@@ -55,7 +59,11 @@ export default function BlogPost() {
             }`}
           >
             {liked ? <FaHeart /> : <FaRegHeart />}
-            {stats.likes}
+            {stats === null ? (
+              <span className="w-2 h-3 bg-gray-200 rounded animate-pulse inline-block" />
+            ) : (
+              stats.likes
+            )}
           </button>
         </div>
       </div>
@@ -78,7 +86,11 @@ export default function BlogPost() {
         >
           {liked ? <FaHeart /> : <FaRegHeart />}
           {liked ? "좋아요" : "이 글이 도움됐다면 하트를!"}
-          <span className="font-bold">{stats.likes}</span>
+          {stats === null ? (
+            <span className="w-4 h-3 bg-gray-200 rounded animate-pulse inline-block" />
+          ) : (
+            <span className="font-bold">{stats.likes}</span>
+          )}
         </button>
         {liked && (
           <p className="text-xs text-gray-400">

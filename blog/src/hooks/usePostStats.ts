@@ -7,7 +7,7 @@ interface PostStats {
 }
 
 export function usePostStats(slug: string) {
-  const [stats, setStats] = useState<PostStats>({ views: 0, likes: 0 });
+  const [stats, setStats] = useState<PostStats | null>(null);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
