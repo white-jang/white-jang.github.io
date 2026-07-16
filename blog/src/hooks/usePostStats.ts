@@ -9,6 +9,7 @@ interface PostStats {
 export function usePostStats(slug: string) {
   const [stats, setStats] = useState<PostStats | null>(null);
   const [liked, setLiked] = useState(false);
+  const [likeLoading, setLikeLoading] = useState(false);
 
   useEffect(() => {
     setLiked(localStorage.getItem(`liked_${slug}`) === "true");
@@ -22,28 +23,34 @@ export function usePostStats(slug: string) {
   }, [slug]);
 
   const handleLike = async () => {
-    if (liked) {
-      const { data, error } = await supabase.rpc("decrement_likes", {
-        post_slug: slug,
-      });
-      if (error) { console.error("[likes]", error); return; }
-      if (data?.[0]) {
-        setStats({ views: data[0].views, likes: data[0].likes });
-        setLiked(false);
-        localStorage.removeItem(`liked_${slug}`);
+    if (likeLoading) return;
+    setLikeLoading(true);
+    try {
+      if (liked) {
+        const { data, error } = await supabase.rpc("decrement_likes", {
+          post_slug: slug,
+        });
+        if (error) { console.error("[likes]", error); return; }
+        if (data?.[0]) {
+          setStats({ views: data[0].views, likes: data[0].likes });
+          setLiked(false);
+          localStorage.removeItem(`liked_${slug}`);
+        }
+      } else {
+        const { data, error } = await supabase.rpc("increment_likes", {
+          post_slug: slug,
+        });
+        if (error) { console.error("[likes]", error); return; }
+        if (data?.[0]) {
+          setStats({ views: data[0].views, likes: data[0].likes });
+          setLiked(true);
+          localStorage.setItem(`liked_${slug}`, "true");
+        }
       }
-    } else {
-      const { data, error } = await supabase.rpc("increment_likes", {
-        post_slug: slug,
-      });
-      if (error) { console.error("[likes]", error); return; }
-      if (data?.[0]) {
-        setStats({ views: data[0].views, likes: data[0].likes });
-        setLiked(true);
-        localStorage.setItem(`liked_${slug}`, "true");
-      }
+    } finally {
+      setLikeLoading(false);
     }
   };
 
-  return { stats, liked, handleLike };
+  return { stats, liked, likeLoading, handleLike };
 }

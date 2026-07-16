@@ -7,7 +7,7 @@ import { usePostStats } from "../hooks/usePostStats";
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPost(slug) : null;
-  const { stats, liked, handleLike } = usePostStats(slug ?? "");
+  const { stats, liked, likeLoading, handleLike } = usePostStats(slug ?? "");
 
   if (!post) {
     return (
@@ -54,7 +54,8 @@ export default function BlogPost() {
           </span>
           <button
             onClick={handleLike}
-            className={`flex items-center gap-1 transition-colors ${
+            disabled={likeLoading}
+            className={`flex items-center gap-1 transition-colors disabled:opacity-50 ${
               liked ? "text-red-500" : "hover:text-red-400"
             }`}
           >
@@ -78,7 +79,8 @@ export default function BlogPost() {
       <div className="flex flex-col items-center gap-2 mt-16">
         <button
           onClick={handleLike}
-          className={`flex items-center gap-2 border px-6 py-3 text-sm transition-colors duration-150 ${
+          disabled={likeLoading}
+          className={`flex items-center gap-2 border px-6 py-3 text-sm transition-colors duration-150 disabled:opacity-50 ${
             liked
               ? "border-red-400 text-red-500 bg-red-50"
               : "border-black hover:bg-black hover:text-white"
