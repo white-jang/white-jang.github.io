@@ -1,6 +1,7 @@
 import { FaGithub, FaBloggerB } from "react-icons/fa";
 import { SiNotion } from "react-icons/si";
 import { useTyping } from "../hooks/useTyping";
+import MascotChase from "../components/MascotChase";
 
 const TYPING_TEXTS = [
   "Hello, World!",
@@ -66,6 +67,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <MascotChase />
     </div>
   );
 }
