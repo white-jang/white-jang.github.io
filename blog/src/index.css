@@ -7,3 +7,14 @@
     @apply bg-stone-50 text-black;
   }
 }
+
+.mermaid-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.mermaid-wrapper svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}

@@ -15,13 +15,19 @@ export default function BlogPost() {
     if (elements.length === 0) return;
 
     import("mermaid").then(({ default: mermaid }) => {
-      mermaid.initialize({ startOnLoad: false, theme: "default" });
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "default",
+        flowchart: { useMaxWidth: true },
+        sequence: { useMaxWidth: true },
+      });
       elements.forEach(async (el) => {
         const code = el.textContent ?? "";
         const id = `mermaid-${Math.random().toString(36).slice(2)}`;
         try {
           const { svg } = await mermaid.render(id, code);
           const wrapper = document.createElement("div");
+          wrapper.className = "mermaid-wrapper";
           wrapper.innerHTML = svg;
           el.replaceWith(wrapper);
         } catch (e) {
