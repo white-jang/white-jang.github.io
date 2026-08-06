@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FiEye } from "react-icons/fi";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -8,6 +9,27 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPost(slug) : null;
   const { stats, liked, likeLoading, handleLike } = usePostStats(slug ?? "");
+
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>(".mermaid-raw");
+    if (elements.length === 0) return;
+
+    import("mermaid").then(({ default: mermaid }) => {
+      mermaid.initialize({ startOnLoad: false, theme: "default" });
+      elements.forEach(async (el) => {
+        const code = el.textContent ?? "";
+        const id = `mermaid-${Math.random().toString(36).slice(2)}`;
+        try {
+          const { svg } = await mermaid.render(id, code);
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = svg;
+          el.replaceWith(wrapper);
+        } catch (e) {
+          console.error("mermaid render error", e);
+        }
+      });
+    });
+  }, [post?.html]);
 
   if (!post) {
     return (

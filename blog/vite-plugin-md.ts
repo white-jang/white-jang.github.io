@@ -77,13 +77,18 @@ export function mdPlugin(): Plugin {
       const { data, content } = parseFrontmatter(code);
       const hl = await getHighlighter();
 
+      const processedContent = content.replace(
+        /```mermaid\n([\s\S]*?)```/g,
+        (_, diagram) => `<div class="mermaid-raw">${diagram.trim()}</div>`
+      );
+
       const file = await unified()
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeShikiFromHighlighter, hl, { theme: "aurora-x" })
         .use(rehypeStringify, { allowDangerousHtml: true })
-        .process(content);
+        .process(processedContent);
 
       const slug = id.split("/").pop()!.replace(/\.md$/, "");
 
