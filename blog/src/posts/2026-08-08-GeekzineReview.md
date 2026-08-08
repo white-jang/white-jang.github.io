@@ -40,3 +40,4 @@ Chrome 웹스토어에 올리고 나서 **최근 90일 기준 설치 126건**을
 ---
 
 👉 [GeekZine 깃허브 저장소](https://github.com/white-jang/GeekZine)
+👉 [GeekZine 크롬 익스텐션 설치 주소](https://chromewebstore.google.com/detail/aogkcaeoecfahejjkkaifohbebhnjlph?utm_source=item-share-cb)
